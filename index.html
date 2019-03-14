@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none">
+	<title>首页</title>
+	<link href="css/mui.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style type="text/css">
+		html,body,.container{height:100%;}
+		.header{
+			position: fixed;width: 100%;background: #ffffff;line-height: 40px;
+			border-bottom: 1px solid gainsboro;
+		}
+		li {
+			padding:0.8em;
+			border-bottom:1px solid #eaeaea;
+		}
+		li:active {
+			background:#f4f4f4;
+		}
+		.item {
+			display:block;
+			background:no-repeat right center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwEAYAAAAHkiXEAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAAASAAAAEgARslrPgAAAoRJREFUeNrt179L61AUwPFz0kZRh9BBB+kkxUGM0nNp/bGKFVFBwdI/wUEQHNxdOnXzHxBXBbUiFimi2KUQ0jgIOrVKhHbSDgaKRfOGPAvvPYSWp9xSzmcp6fTlHm7uDQBjjDHGGGOMMcYYY4wxCUI7oZ3QTnf3WGosNZbq65Pd89MU2QF/04paUStalvqgPqgPpRIREZEQsrt+StsNAHKQg5xtQx7ykO/vR0REvLgIr4XXwmtTU7Lzvlv7DQAAAFZW3HP33D3PZr1nTVNQQQWz2fBB+CB8MDMju7DjfZ4FVKEKVY6PhRBCCNf1fh1HkCBBsZjszv/lkx3wlefMc+Y58/4eiAaigejhoX/UP+ofHRlBE000x8chAhGIJBKDMAiDcHtbLpfL5fL9vezujhWPx+PxuM9Hj/RIj3t7f+6ItzdhCUtYq6uyOzve5yBEUiRFcnf3cxD0QR/0Ua+TSiqpiYTszo43aU/ak3ZPD13SJV3admMQp3RKp5Ylu69ZftkBrfIWure3vlxfri8fHSEgIASD3pngOLiAC7iwuSm7s1lteg39V+PLOAUpSJ2ceP/GYrAO67D++goGGGAsLZlooolXV7J7m9X2O8C7bmqaO+QOuUNnZ7AFW7A1PQ1RiEK0WnX33X13f36+YBbMgpnPy+5tFcoO+Iqu67quBwJdapfapWYygICAExOwARuw8fKibCvbyvbcnFEySkbJMGT3dgzvVTMwINIiLdI3N43D9Zqu6bpS8XaErsvu7FjegptmY+F/33IiT5GnyNPwsOy+79Z+Z8AszMJstQo1qEHt7k5xFEdxFheNoBE0gsWi7DzGGGOMMcYYY4wxxhhjjDHGWCt+AQ7J6F+fXYnsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTEyLTA2VDExOjUxOjAyKzA4OjAwDV/r1QAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0xMi0wNlQxMTo1MTowMiswODowMHwCU2kAAABOdEVYdHN2ZzpiYXNlLXVyaQBmaWxlOi8vL2hvbWUvYWRtaW4vaWNvbi1mb250L3RtcC9pY29uX2huMGM5Ymp6cmRxL3NleS1Gb3J3YXJkLnN2Z+G1zWIAAAAASUVORK5CYII=);
+			background-size:24px 24px;
+			-ms-touch-action:auto;
+		}
+		.chs {
+			font-size:0.8em;
+			color:#838383;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row mui-text-center header">
+			<div style="font-size: 16px;">首页</div>
+		</div>
+		<div class="row">
+			<ul id="plist" style="list-style:none;margin:0;padding:0;text-align:left;padding-top: 40px;">
+				
+		    </ul>
+		</div>
+	</div>
+	<script src="js/mui.min.js"></script>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		var token  = 'RHlacKVYxv3SJf4Xzt/7pdML5Aepc0JHJxYL1mVHUpuNrgAkwacRqrnvR3h7A8djbhor0eeOEvXQ62GV9Hu70';
+		    
+		var baseurl = 'https://api.phpxueyuan.cn/'
+		$(function(){
+			getindex();
+		});
+		mui.init();
+		// 监听plusready事件
+		document.addEventListener( "plusready", function(){
+			
+		}, false );
+		
+		function getindex(){
+			$('#plist').html("");
+			$.post(baseurl+'porn/indexs', {'token':token}, function(data){
+				if(data.code == 0){
+					var html = '';
+					_data = data.data;
+					for(i = 0; i < _data.length; i++){
+						html += '<li>';
+						html += '<span class="item">'+_data[i]["title"]+'</span>';
+						html += '</li>';
+					}
+					$('#plist').html(html);
+				}else{
+					mui.alert('数据加载异常','系统提示');
+				}
+			});
+		}
+	</script>
+</body>
+</html>
