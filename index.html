@@ -8,6 +8,13 @@
 	<title>首页</title>
 	<link href="css/mui.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<<<<<<< HEAD
+	<link rel="stylesheet" href="css/style.css" />
+	<style>
+		.back{float: left;margin-left: 20px;cursor: pointer;z-index: 99;width: 6%;font-size: 24px;}
+		.title{float: left;width: 80%;font-size: 18px;}
+		.mui-content-padded{padding-top: 40px;}
+=======
 	<style type="text/css">
 		html,body,.container{height:100%;}
 		.header{
@@ -31,30 +38,85 @@
 			font-size:0.8em;
 			color:#838383;
 		}
+>>>>>>> bbc360f9a61eeef0503f6e925d3e95b308c859c8
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row mui-text-center header">
+<<<<<<< HEAD
+			<div class="back"> < </div>
+			<div class="title" style="float: left;margin: 0;">首页</div>
+=======
 			<div style="font-size: 16px;">首页</div>
+>>>>>>> bbc360f9a61eeef0503f6e925d3e95b308c859c8
 		</div>
 		<div class="row">
 			<ul id="plist" style="list-style:none;margin:0;padding:0;text-align:left;padding-top: 40px;">
 				
 		    </ul>
 		</div>
+<<<<<<< HEAD
+		<div class="mui-content-padded" style="display: none;">
+			
+		</div>
 	</div>
 	<script src="js/mui.min.js"></script>
+	<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>
+=======
+	</div>
+	<script src="js/mui.min.js"></script>
+>>>>>>> bbc360f9a61eeef0503f6e925d3e95b308c859c8
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 	<script type="text/javascript">
 		
 		var token  = 'RHlacKVYxv3SJf4Xzt/7pdML5Aepc0JHJxYL1mVHUpuNrgAkwacRqrnvR3h7A8djbhor0eeOEvXQ62GV9Hu70';
+<<<<<<< HEAD
+		    token += '+275xMRVDe84F6+2sC2fdf8v1Q+jEy7PbgbeWlxBTvkAj2oxhLINwoANEZhVc2jyuHU8f0u/BvggaijrhLfpEc=';
+		var baseurl = 'https://api.phpxueyuan.cn/'
+		$(function(){
+			getindex();
+			
+			$('.back').on('click', function(){
+				$('#plist').show();
+				$('.title').html('首页');
+				$('.mui-content-padded').hide();
+			});
+			
+			$('#plist').on('click', '.item', function(){
+				$('.title').html('详情');
+				$('#plist').hide();
+				$('.back').show();
+				$('.mui-content-padded').empty();
+				$('.mui-content-padded').show();
+				var id = $(this).attr('data-id');
+				$.post(baseurl+'porn/detail', {'token':token, tid:id}, function(data){
+					if(data.code == 0){
+						var html = '';
+						_data = data.data;
+						for(i = 0; i < _data.length; i++){
+							html += '<p>';
+							html += '<img src="'+_data[i]+'" data-preview-src="" data-preview-group="1" />';
+							html += '</p>';
+						}
+						$('.mui-content-padded').html(html);
+					}else{
+						mui.alert('数据加载异常','系统提示');
+					}
+				});
+			});
+		});
+		mui.init();
+		mui.previewImage();
+=======
 		    
 		var baseurl = 'https://api.phpxueyuan.cn/'
 		$(function(){
 			getindex();
 		});
 		mui.init();
+>>>>>>> bbc360f9a61eeef0503f6e925d3e95b308c859c8
 		// 监听plusready事件
 		document.addEventListener( "plusready", function(){
 			
@@ -68,7 +130,11 @@
 					_data = data.data;
 					for(i = 0; i < _data.length; i++){
 						html += '<li>';
+<<<<<<< HEAD
+						html += '<span data-id="'+_data[i]["id"]+'" class="item">'+_data[i]["title"]+'</span>';
+=======
 						html += '<span class="item">'+_data[i]["title"]+'</span>';
+>>>>>>> bbc360f9a61eeef0503f6e925d3e95b308c859c8
 						html += '</li>';
 					}
 					$('#plist').html(html);
